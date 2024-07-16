@@ -25,204 +25,264 @@
             top: 0;
             z-index: 1000;
         }
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: bold;
             color: #ff6900;
-        }
-        .nav-links a {
-            margin-left: 1rem;
-            color: #333;
-            text-decoration: none;
+            text-align: center;
         }
         .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 5rem auto 2rem;
-            padding: 0 1rem;
-        }
-        .sidebar {
-            width: 250px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 1.5rem;
-            margin-right: 2rem;
-        }
-        .sidebar ul {
-            list-style-type: none;
-        }
-        .sidebar ul li {
-            margin-bottom: 1rem;
-        }
-        .sidebar ul li a {
-            color: #333;
-            text-decoration: none;
-            display: block;
-            padding: 0.5rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        .sidebar ul li a:hover, .sidebar ul li a.active {
-            background-color: #ff6900;
-            color: #fff;
-        }
-        main {
-            flex-grow: 1;
+            padding: 1rem;
+            margin-top: 3.5rem;
+            margin-bottom: 4rem;
         }
         h1 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
+            text-align: center;
         }
         .tab-content {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
         }
         h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
             color: #ff6900;
         }
-        .car-details {
-            display: flex;
-            flex-wrap: wrap;
-        }
         .car-details div {
-            flex: 1 1 50%;
             margin-bottom: 0.5rem;
         }
-        .maintenance-item, .offer-item {
+        .maintenance-item {
             border-bottom: 1px solid #eee;
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
         }
-        .maintenance-item:last-child, .offer-item:last-child {
+        .maintenance-item:last-child {
             border-bottom: none;
         }
         .cta-button {
-            display: inline-block;
+            display: block;
+            width: 100%;
             background-color: #ff6900;
             color: #fff;
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem;
             border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
+            text-align: center;
             transition: background-color 0.3s;
         }
         .cta-button:hover {
             background-color: #e55d00;
         }
-        .offer-item {
-            background-color: #f9f9f9;
-            border-radius: 4px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        .offer-price {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #ff6900;
-        }
-        .new-badge {
-            display: inline-block;
-            background-color: #ff6900;
-            color: #fff;
-            font-size: 0.75rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            margin-left: 0.5rem;
-        }
         .hidden {
             display: none;
+        }
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+        .bottom-nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .bottom-nav a.active {
+            color: #ff6900;
+        }
+        .bottom-nav img {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 0.25rem;
+        }
+        /* 新しいオファースタイル */
+        .offer-header {
+            background-color: #ff6900;
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            font-weight: bold;
+            margin: -1rem -1rem 1rem -1rem;
+        }
+        .offer-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+        .offer-item:last-child {
+            border-bottom: none;
+        }
+        .offer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .offer-content {
+            flex-grow: 1;
+        }
+        .offer-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .offer-company {
+            font-size: 0.8em;
+            color: #666;
+        }
+        .offer-message {
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        .offer-price {
+            font-weight: bold;
+            color: #ff6900;
+            font-size: 1.1em;
+        }
+        .offer-time {
+            font-size: 0.8em;
+            color: #999;
+        }
+        .new-badge {
+            background-color: #ff6900;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.7em;
+            margin-left: 5px;
+        }
+        .offer-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .like-button {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .like-button.active {
+            color: #ff6900;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">バディカダイレクト</div>
-            <div class="nav-links">
-                <a href="/">ホーム</a>
-                <a href="/search">車を探す</a>
-                <a href="/selling">車を売る</a>
-                <a href="/mypage">マイページ</a>
-            </div>
-        </nav>
+        <div class="logo">バディカダイレクト</div>
     </header>
 
     <div class="container">
-        <aside class="sidebar">
-            <ul>
-                <li><a href="#car-info" class="tab-link active" data-tab="car-info">車両情報</a></li>
-                <li><a href="#maintenance-history" class="tab-link" data-tab="maintenance-history">メンテナンス履歴</a></li>
-                <li><a href="#upcoming-maintenance" class="tab-link" data-tab="upcoming-maintenance">次回メンテナンス</a></li>
-                <li><a href="#offers" class="tab-link" data-tab="offers">買取オファー</a></li>
-            </ul>
-        </aside>
+        <h1>マイカー情報</h1>
 
-        <main>
-            <h1>マイカー情報</h1>
+        <div id="car-info" class="tab-content">
+            <h2>車両情報</h2>
+            <div class="car-details">
+                <div><strong>メーカー：</strong> トヨタ</div>
+                <div><strong>車種：</strong> プリウス</div>
+                <div><strong>年式：</strong> 2020年</div>
+                <div><strong>走行距離：</strong> 25,000km</div>
+                <div><strong>ナンバー：</strong> 品川 500 あ 1234</div>
+                <div><strong>車検期限：</strong> 2024年9月</div>
+            </div>
+        </div>
 
-            <div id="car-info" class="tab-content">
-                <h2>車両情報</h2>
-                <div class="car-details">
-                    <div><strong>メーカー：</strong> トヨタ</div>
-                    <div><strong>車種：</strong> プリウス</div>
-                    <div><strong>年式：</strong> 2020年</div>
-                    <div><strong>走行距離：</strong> 25,000km</div>
-                    <div><strong>ナンバープレート：</strong> 品川 500 あ 1234</div>
-                    <div><strong>車検期限：</strong> 2024年9月</div>
+        <div id="maintenance-history" class="tab-content hidden">
+            <h2>メンテナンス履歴</h2>
+            <div class="maintenance-item">
+                <p><strong>日付：</strong> 2023年12月15日</p>
+                <p><strong>内容：</strong> オイル交換、エアフィルター交換</p>
+            </div>
+            <div class="maintenance-item">
+                <p><strong>日付：</strong> 2023年6月20日</p>
+                <p><strong>内容：</strong> 12ヶ月点検、ブレーキパッド交換</p>
+            </div>
+        </div>
+
+        <div id="upcoming-maintenance" class="tab-content hidden">
+            <h2>次回のメンテナンス予定</h2>
+            <p><strong>予定日：</strong> 2024年6月頃</p>
+            <p><strong>内容：</strong> 24ヶ月点検、オイル交換</p>
+            <p><strong>予想費用：</strong> 約50,000円</p>
+            <a href="/schedule-maintenance" class="cta-button">メンテナンスを予約する</a>
+        </div>
+
+        <div id="offers" class="tab-content hidden">
+            <div class="offer-header">
+                売却希望額：¥1,300,000円
+            </div>
+            <div class="offer-item">
+                <img src="https://via.placeholder.com/40" alt="松波大" class="offer-avatar">
+                <div class="offer-content">
+                    <div class="offer-name">松波大 <span class="offer-company">(高松CC)</span> <span class="new-badge">New</span></div>
+                    <div class="offer-message">買取150です。</div>
+                    <div class="offer-price">¥1,500,000</div>
+                    <div class="offer-actions">
+                        <span class="offer-time">1時間前</span>
+                        <button class="like-button">👍 いいね！</button>
+                    </div>
                 </div>
             </div>
-
-            <div id="maintenance-history" class="tab-content hidden">
-                <h2>メンテナンス履歴</h2>
-                <div class="maintenance-item">
-                    <p><strong>日付：</strong> 2023年12月15日</p>
-                    <p><strong>内容：</strong> オイル交換、エアフィルター交換</p>
-                </div>
-                <div class="maintenance-item">
-                    <p><strong>日付：</strong> 2023年6月20日</p>
-                    <p><strong>内容：</strong> 12ヶ月点検、ブレーキパッド交換</p>
-                </div>
-            </div>
-
-            <div id="upcoming-maintenance" class="tab-content hidden">
-                <h2>次回のメンテナンス予定</h2>
-                <p><strong>予定日：</strong> 2024年6月頃</p>
-                <p><strong>内容：</strong> 24ヶ月点検、オイル交換</p>
-                <p><strong>予想費用：</strong> 約50,000円</p>
-                <a href="/schedule-maintenance" class="cta-button">メンテナンスを予約する</a>
-            </div>
-
-            <div id="offers" class="tab-content hidden">
-                <h2>買取オファー</h2>
-                <div class="offer-item">
-                    <p class="offer-price">1,800,000円 <span class="new-badge">NEW</span></p>
-                    <p><strong>オファー元：</strong> A社</p>
-                    <p><strong>有効期限：</strong> 2024年7月31日まで</p>
-                    <a href="/offer-details/1" class="cta-button">詳細を見る</a>
-                </div>
-                <div class="offer-item">
-                    <p class="offer-price">1,750,000円</p>
-                    <p><strong>オファー元：</strong> B社</p>
-                    <p><strong>有効期限：</strong> 2024年7月15日まで</p>
-                    <a href="/offer-details/2" class="cta-button">詳細を見る</a>
+            <div class="offer-item">
+                <img src="https://via.placeholder.com/40" alt="岡村翔" class="offer-avatar">
+                <div class="offer-content">
+                    <div class="offer-name">岡村翔 <span class="offer-company">(倉敷)</span></div>
+                    <div class="offer-message">倉敷激しく希望します🔥 158万でも欲しい🔥</div>
+                    <div class="offer-price">¥1,580,000</div>
+                    <div class="offer-actions">
+                        <span class="offer-time">1時間前</span>
+                        <button class="like-button">👍 いいね！</button>
+                    </div>
                 </div>
             </div>
-        </main>
+            <div class="offer-item">
+                <img src="https://via.placeholder.com/40" alt="戸田森平" class="offer-avatar">
+                <div class="offer-content">
+                    <div class="offer-name">戸田森平 <span class="offer-company">(福岡南)</span></div>
+                    <div class="offer-message">福岡162万</div>
+                    <div class="offer-price">¥1,620,000</div>
+                    <div class="offer-actions">
+                        <span class="offer-time">29分前</span>
+                        <button class="like-button">👍 いいね！</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script>
+    <nav class="bottom-nav">
+        <a href="#car-info" class="tab-link active" data-tab="car-info">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 3h5v5M19 6l-7 7M4 20l7-7M15 15l5 5'/></svg>
+            車両情報
+        </a>
+        <a href="#maintenance-history" class="tab-link" data-tab="maintenance-history">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpolyline points='14 2 14 8 20 8'/%3E%3Cline x1='16' y1='13' x2='8' y2='13'/%3E%3Cline x1='16' y1='17' x2='8' y2='17'/%3E%3Cpolyline points='10 9 9 9 8 9'/%3E%3C/svg%3E">
+            履歴
+        </a>
+        <a href="#upcoming-maintenance" class="tab-link" data-tab="upcoming-maintenance">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E">
+            予定
+        </a>
+        <a href="#offers" class="tab-link" data-tab="offers">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='12' y1='1' x2='12' y2='23'/%3E%3Cpath d='M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'/%3E%3C/svg%3E">
+            オファー
+        </a>
+    </nav>
+<script>
         document.addEventListener('DOMContentLoaded', function() {
             const tabLinks = document.querySelectorAll('.tab-link');
             const tabContents = document.querySelectorAll('.tab-content');
@@ -253,13 +313,11 @@
                 });
             });
 
-            // URLのハッシュに基づいてタブを表示
             if (window.location.hash) {
                 const tabId = window.location.hash.substring(1);
                 showTab(tabId);
             }
 
-            // ブラウザの戻る/進むボタンでのタブ切り替え
             window.addEventListener('popstate', function() {
                 if (window.location.hash) {
                     const tabId = window.location.hash.substring(1);
@@ -267,6 +325,14 @@
                 } else {
                     showTab('car-info');
                 }
+            });
+
+            // いいねボタンの機能
+            document.querySelectorAll('.like-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    this.textContent = this.classList.contains('active') ? '👍 いいね！済み' : '👍 いいね！';
+                });
             });
         });
     </script>
