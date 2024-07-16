@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>マイカーページ | バディカダイレクト</title>
     <style>
         * {
@@ -255,6 +256,13 @@
             margin-top: 0.25rem;
             font-size: 0.9rem;
         }
+    　　　　　　　.chart-container {
+            position: relative;
+            margin: auto;
+            height: 200px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -375,6 +383,11 @@
             <div class="offer-header">
                 売却希望額：¥1,300,000円
             </div>
+                        <h3>概算査定金額の相場推移</h3>
+            <div class="chart-container">
+                <canvas id="priceChart"></canvas>
+            </div>
+
             <div class="offer-item">
                 <img src="https://pbs.twimg.com/profile_images/1801930982892969984/YePtCmly_400x400.jpg" alt="松波大" class="offer-avatar">
                 <div class="offer-content">
@@ -523,6 +536,58 @@
             });
 
             carousel.addEventListener('touchend', handleGesture);
+        });
+     document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('priceChart').getContext('2d');
+            
+            // 仮のデータ（実際のアプリケーションでは、APIからデータを取得するなどの方法で実装します）
+            const priceData = {
+                labels: ['6ヶ月前', '5ヶ月前', '4ヶ月前', '3ヶ月前', '2ヶ月前', '1ヶ月前', '現在'],
+                datasets: [{
+                    label: '概算査定金額',
+                    data: [1250000, 1280000, 1310000, 1290000, 1320000, 1350000, 1300000],
+                    fill: false,
+                    borderColor: '#ff6900',
+                    tension: 0.1
+                }]
+            };
+
+            const config = {
+                type: 'line',
+                data: priceData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return '¥' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            new Chart(ctx, config);
         });
     </script>
 </body>
