@@ -108,6 +108,45 @@
             height: 24px;
             margin-bottom: 0.25rem;
         }
+               .carousel {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            height: 100%;
+        }
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+        .carousel-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .carousel-indicator.active {
+            background-color: #fff;
+        }
         /* 新しいオファースタイル */
         .offer-header {
             background-color: #ff6900;
@@ -228,7 +267,19 @@
 
         <div id="my-car" class="tab-content">
             <h2>愛車情報</h2>
-            <img src="https://www.buddica.jp/cchimg99/CarImage/3/02038000230000029104.08?15296" alt="愛車の写真" class="car-photo">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item"><img src="https://www.buddica.jp/cchimg99/CarImage/3/02038000230000029104.08?15296" alt="愛車の写真1"></div>
+                    <div class="carousel-item"><img src="https://www.buddica.jp/cchimg99/CarImage/3/02038000230000029104.08?15296" alt="愛車の写真1"></div>
+                    <div class="carousel-item"><img src="https://www.buddica.jp/cchimg99/CarImage/3/02038000230000029104.08?15296" alt="愛車の写真1"></div>
+                    <div class="carousel-item"><img src="https://www.buddica.jp/cchimg99/CarImage/3/02038000230000029104.08?15296" alt="愛車の写真1"></div>
+                    <div class="carousel-item"><img src="https://www.buddica.jp/cchimg99/CarImage/3/02038000230000029104.08?15296" alt="愛車の写真1"></div>
+                    <div class="carousel-item"><img src="https://www.buddica.jp/cchimg99/CarImage/3/02038000230000029104.08?15296" alt="愛車の写真1"></div>
+                    <div class="carousel-item"><img src="https://www.buddica.jp/cchimg99/CarImage/3/02038000230000029104.08?15296" alt="愛車の写真1"></div>
+                    <div class="carousel-item"><img src="https://www.buddica.jp/cchimg99/CarImage/3/02038000230000029104.08?15296" alt="愛車の写真1"></div>
+                </div>
+                <div class="carousel-indicators"></div>
+            </div>
             <div class="info-grid">
                 <div class="info-item">
                     <div class="info-label">メーカー</div>
@@ -429,6 +480,49 @@
                     this.textContent = this.classList.contains('active') ? '👍 いいね！済み' : '👍 いいね！';
                 });
             });
+        });
+    document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            const carouselInner = carousel.querySelector('.carousel-inner');
+            const items = carousel.querySelectorAll('.carousel-item');
+            const indicators = carousel.querySelector('.carousel-indicators');
+
+            let currentIndex = 0;
+            let startX, moveX;
+
+            // インジケーターの作成
+            items.forEach((_, index) => {
+                const indicator = document.createElement('div');
+                indicator.classList.add('carousel-indicator');
+                if (index === 0) indicator.classList.add('active');
+                indicators.appendChild(indicator);
+            });
+
+            function updateCarousel() {
+                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            function handleGesture() {
+                if (moveX - startX > 100 && currentIndex > 0) {
+                    currentIndex--;
+                } else if (startX - moveX > 100 && currentIndex < items.length - 1) {
+                    currentIndex++;
+                }
+                updateCarousel();
+            }
+
+            carousel.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+            });
+
+            carousel.addEventListener('touchmove', e => {
+                moveX = e.touches[0].clientX;
+            });
+
+            carousel.addEventListener('touchend', handleGesture);
         });
     </script>
 </body>
